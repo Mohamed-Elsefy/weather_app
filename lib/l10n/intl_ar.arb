@@ -1,0 +1,19 @@
+{
+    "@@locale": "ar",
+    "weather": "الطقس",
+    "@weather": {},
+    "language": "اللغة",
+    "@language": {},
+    "arabic": "العربية",
+    "@arabic": {},
+    "english": "الانجليزية",
+    "@english": {},
+    "theme": "السمة",
+    "@theme": {},
+    "systme": "النظام",
+    "@systme": {},
+    "light": "فاتح",
+    "@light": {},
+    "dark": "داكن",
+    "@dark": {}
+}

@@ -1,0 +1,19 @@
+{
+    "@@locale": "en",
+    "weather": "Weather",
+    "@weather": {},
+    "language": "Language",
+    "@language": {},
+    "arabic": "Arabic",
+    "@arabic": {},
+    "english": "English",
+    "@english": {},
+    "theme": "Theme",
+    "@theme": {},
+    "systme": "System",
+    "@systme": {},
+    "light": "Light",
+    "@light": {},
+    "dark": "Dark",
+    "@dark": {}
+}
