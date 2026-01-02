@@ -3,7 +3,7 @@ import 'package:weather_app/services/api_service/api_consumer.dart';
 import 'package:weather_app/services/api_service/end_point.dart';
 import 'package:weather_app/services/weather_service/weather_service.dart';
 
-class WeatherApiServiceImpl implements WeatherService {
+class WeatherApiServiceImpl implements WeatherApiService {
   final ApiConsumer api;
 
   WeatherApiServiceImpl({required this.api});
