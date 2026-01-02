@@ -36,7 +36,7 @@ flutter:
     - assets/icons/
 
   fonts:
-    - family: null
+    - family: Inter
       fonts:
         - asset: assets/fonts/Inter-Regular.ttf
         - asset: assets/fonts/Inter-Medium.ttf
