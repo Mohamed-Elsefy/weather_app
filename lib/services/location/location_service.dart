@@ -1,11 +1,11 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter/foundation.dart'; 
+import 'package:flutter/foundation.dart';
+import 'location_exceptions.dart';
 
 class LocationService {
   Future<void> _ensurePermission() async {
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      throw Exception('Location services are disabled');
+    if (!await Geolocator.isLocationServiceEnabled()) {
+      throw const LocationServiceDisabled();
     }
 
     LocationPermission permission = await Geolocator.checkPermission();
@@ -13,49 +13,37 @@ class LocationService {
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        throw Exception('Location permission denied');
+        throw const LocationPermissionDenied();
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      throw Exception('Location permission permanently denied');
+      throw const LocationPermissionPermanentlyDenied();
     }
   }
 
   Future<Position> getCurrentLocation() async {
     await _ensurePermission();
 
-    // إعدادات الموقع حسب المنصة
-    LocationSettings locationSettings;
+    LocationSettings settings;
 
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      locationSettings = AndroidSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 0,
-      );
+    if (kIsWeb) {
+      settings = WebSettings(accuracy: LocationAccuracy.high);
+    } else if (defaultTargetPlatform == TargetPlatform.android) {
+      settings = AndroidSettings(accuracy: LocationAccuracy.high);
     } else if (defaultTargetPlatform == TargetPlatform.iOS ||
         defaultTargetPlatform == TargetPlatform.macOS) {
-      locationSettings = AppleSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 0,
-      );
-    } else if (kIsWeb) {
-      locationSettings = WebSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 0,
-      );
+      settings = AppleSettings(accuracy: LocationAccuracy.high);
     } else {
-      locationSettings = const LocationSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 0,
-      );
+      settings = const LocationSettings(accuracy: LocationAccuracy.high);
     }
 
-    final position = await Geolocator.getCurrentPosition(
-      locationSettings: locationSettings,
-    );
-
-    debugPrint('📍 Location: ${position.latitude}, ${position.longitude}');
-    return position;
+    try {
+      return await Geolocator.getCurrentPosition(
+        locationSettings: settings,
+      ).timeout(const Duration(seconds: 10));
+    } catch (_) {
+      throw const LocationTimeoutException();
+    }
   }
 }

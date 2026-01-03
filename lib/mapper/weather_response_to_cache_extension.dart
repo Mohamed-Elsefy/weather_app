@@ -6,7 +6,7 @@ import 'package:weather_app/models/api_models/weather_response.dart';
 import 'package:weather_app/models/cach_models/weather_location_cache.dart';
 
 extension WeatherResponseToCacheExtension on WeatherResponse {
-  WeatherCache toCache({required String city, required String lang}) {
+  WeatherCache toCache({required String lang}) {
     return WeatherCache(
       location: WeatherLocationCache(
         name: location.name,
