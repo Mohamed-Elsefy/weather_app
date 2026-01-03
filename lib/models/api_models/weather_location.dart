@@ -1,4 +1,4 @@
-import 'package:weather_app/services/api_service/end_point.dart';
+import 'package:weather_app/services/api/end_point.dart';
 
 class WeatherLocation {
   final String name;

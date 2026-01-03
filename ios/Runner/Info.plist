@@ -50,5 +50,8 @@
 		<string>en</string>
 		<string>ar</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to show local weather</string>
+
 </dict>
 </plist>

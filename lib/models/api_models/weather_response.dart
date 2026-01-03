@@ -2,7 +2,7 @@ import 'package:weather_app/models/api_models/weather_current.dart';
 import 'package:weather_app/models/api_models/weather_daily.dart';
 import 'package:weather_app/models/api_models/weather_hourly.dart';
 import 'package:weather_app/models/api_models/weather_location.dart';
-import 'package:weather_app/services/api_service/end_point.dart';
+import 'package:weather_app/services/api/end_point.dart';
 
 class WeatherResponse {
   final WeatherLocation location;

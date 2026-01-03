@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/generated/l10n.dart';
+import 'package:weather_app/providers/location_provider.dart';
 import 'package:weather_app/providers/weather_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -8,62 +9,54 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(locationProvider, (previous, next) {
+      next.whenOrNull(
+        data: (position) {
+          ref
+              .read(weatherProvider.notifier)
+              .fetchByCoordinates(
+                lat: position.latitude,
+                lon: position.longitude,
+                lang: Localizations.localeOf(context).languageCode,
+              );
+        },
+      );
+    });
+
     final weatherAsync = ref.watch(weatherProvider);
+    final locationAsync = ref.watch(locationProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).weather),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // اختبار: جلب بالقاهرة
-              ref
-                  .read(weatherProvider.notifier)
-                  .fetchByCity(
-                    'Cairo',
-                    Localizations.localeOf(context).languageCode,
-                  );
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.my_location),
-            onPressed: () {
-              // اختبار: إحداثيات القاهرة
-              ref
-                  .read(weatherProvider.notifier)
-                  .fetchByCoordinates(
-                    lat: 30.0444,
-                    lon: 31.2357,
-                    lang: Localizations.localeOf(context).languageCode,
-                  );
-            },
-          ),
-        ],
-      ),
-      body: weatherAsync.when(
+      appBar: AppBar(title: Text(S.of(context).weather)),
+      body: locationAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => _ErrorView(error: e.toString()),
-        data: (weather) => RefreshIndicator(
-          onRefresh: () async {
-            ref
-                .read(weatherProvider.notifier)
-                .fetchByCity(
-                  weather.location.name,
-                  Localizations.localeOf(context).languageCode,
-                );
-          },
-          child: ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              _CurrentWeatherCard(weather: weather),
-              const SizedBox(height: 24),
-              _HourlyForecast(weather: weather),
-              const SizedBox(height: 24),
-              _DailyForecast(weather: weather),
-            ],
-          ),
-        ),
+        error: (e, _) => Center(child: Text(e.toString())),
+        data: (_) {
+          return weatherAsync.when(
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (e, _) => Center(child: Text(e.toString())),
+            data: (weather) => RefreshIndicator(
+              onRefresh: () async {
+                ref
+                    .read(weatherProvider.notifier)
+                    .fetchByCity(
+                      weather.location.name,
+                      Localizations.localeOf(context).languageCode,
+                    );
+              },
+              child: ListView(
+                padding: const EdgeInsets.all(16),
+                children: [
+                  _CurrentWeatherCard(weather: weather),
+                  const SizedBox(height: 24),
+                  _HourlyForecast(weather: weather),
+                  const SizedBox(height: 24),
+                  _DailyForecast(weather: weather),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
 import 'package:weather_app/models/api_models/weather_response.dart';
-import 'package:weather_app/services/api_service/dio_consumer.dart';
-import 'package:weather_app/services/weather_service/weather_api_service_impl.dart';
+import 'package:weather_app/services/api/dio_consumer.dart';
+import 'package:weather_app/services/weather/weather_api_service_impl.dart';
 
 class WeatherNotifier extends AsyncNotifier<WeatherResponse> {
   late final WeatherApiServiceImpl service;

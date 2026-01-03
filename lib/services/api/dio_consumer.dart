@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:weather_app/services/api_service/api_consumer.dart';
-import 'package:weather_app/services/api_service/api_exception.dart';
-import 'package:weather_app/services/api_service/end_point.dart';
+import 'package:weather_app/services/api/api_consumer.dart';
+import 'package:weather_app/services/api/api_exception.dart';
+import 'package:weather_app/services/api/end_point.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;

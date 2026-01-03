@@ -1,7 +1,7 @@
 import 'package:weather_app/models/api_models/weather_response.dart';
-import 'package:weather_app/services/api_service/api_consumer.dart';
-import 'package:weather_app/services/api_service/end_point.dart';
-import 'package:weather_app/services/weather_service/weather_service.dart';
+import 'package:weather_app/services/api/api_consumer.dart';
+import 'package:weather_app/services/api/end_point.dart';
+import 'package:weather_app/services/weather/weather_service.dart';
 
 class WeatherApiServiceImpl implements WeatherApiService {
   final ApiConsumer api;
