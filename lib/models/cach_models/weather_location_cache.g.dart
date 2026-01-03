@@ -1,47 +1,44 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'weather_cache.dart';
+part of 'weather_location_cache.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class WeatherCacheAdapter extends TypeAdapter<WeatherCache> {
+class WeatherLocationCacheAdapter extends TypeAdapter<WeatherLocationCache> {
   @override
-  final int typeId = 0;
+  final int typeId = 4;
 
   @override
-  WeatherCache read(BinaryReader reader) {
+  WeatherLocationCache read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return WeatherCache(
-      location: fields[0] as WeatherLocationCache,
-      lang: fields[1] as String,
-      cachedAt: fields[2] as DateTime,
-      current: fields[3] as WeatherCurrentCache,
-      daily: (fields[4] as List).cast<WeatherDailyCache>(),
-      hourly: (fields[5] as List).cast<WeatherHourlyCache>(),
+    return WeatherLocationCache(
+      name: fields[0] as String,
+      country: fields[1] as String,
+      lat: fields[2] as double,
+      lon: fields[3] as double,
+      localTime: fields[4] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, WeatherCache obj) {
+  void write(BinaryWriter writer, WeatherLocationCache obj) {
     writer
-      ..writeByte(6)
-      ..writeByte(0)
-      ..write(obj.location)
-      ..writeByte(1)
-      ..write(obj.lang)
-      ..writeByte(2)
-      ..write(obj.cachedAt)
-      ..writeByte(3)
-      ..write(obj.current)
-      ..writeByte(4)
-      ..write(obj.daily)
       ..writeByte(5)
-      ..write(obj.hourly);
+      ..writeByte(0)
+      ..write(obj.name)
+      ..writeByte(1)
+      ..write(obj.country)
+      ..writeByte(2)
+      ..write(obj.lat)
+      ..writeByte(3)
+      ..write(obj.lon)
+      ..writeByte(4)
+      ..write(obj.localTime);
   }
 
   @override
@@ -50,7 +47,7 @@ class WeatherCacheAdapter extends TypeAdapter<WeatherCache> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is WeatherCacheAdapter &&
+      other is WeatherLocationCacheAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

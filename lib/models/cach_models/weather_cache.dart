@@ -2,13 +2,14 @@ import 'package:hive/hive.dart';
 import 'package:weather_app/models/cach_models/weather_current_cache.dart';
 import 'package:weather_app/models/cach_models/weather_daily_cache.dart';
 import 'package:weather_app/models/cach_models/weather_hourly_cache.dart';
+import 'package:weather_app/models/cach_models/weather_location_cache.dart';
 
 part 'weather_cache.g.dart';
 
 @HiveType(typeId: 0)
 class WeatherCache {
   @HiveField(0)
-  final String city;
+  final WeatherLocationCache location;
 
   @HiveField(1)
   final String lang;
@@ -26,7 +27,7 @@ class WeatherCache {
   final List<WeatherHourlyCache> hourly;
 
   WeatherCache({
-    required this.city,
+    required this.location,
     required this.lang,
     required this.cachedAt,
     required this.current,

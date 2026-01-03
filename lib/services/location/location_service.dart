@@ -1,4 +1,5 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:flutter/foundation.dart'; 
 
 class LocationService {
   Future<void> _ensurePermission() async {
@@ -23,8 +24,38 @@ class LocationService {
 
   Future<Position> getCurrentLocation() async {
     await _ensurePermission();
-    return Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
+
+    // إعدادات الموقع حسب المنصة
+    LocationSettings locationSettings;
+
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      locationSettings = AndroidSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 0,
+      );
+    } else if (defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.macOS) {
+      locationSettings = AppleSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 0,
+      );
+    } else if (kIsWeb) {
+      locationSettings = WebSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 0,
+      );
+    } else {
+      locationSettings = const LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 0,
+      );
+    }
+
+    final position = await Geolocator.getCurrentPosition(
+      locationSettings: locationSettings,
     );
+
+    debugPrint('📍 Location: ${position.latitude}, ${position.longitude}');
+    return position;
   }
 }
