@@ -7,6 +7,7 @@ import 'package:weather_app/models/cach_models/weather_current_cache.dart';
 import 'package:weather_app/models/cach_models/weather_daily_cache.dart';
 import 'package:weather_app/models/cach_models/weather_hourly_cache.dart';
 import 'package:weather_app/models/cach_models/weather_location_cache.dart';
+import 'package:weather_app/services/settings/settings_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,4 +23,6 @@ Future<void> initHive() async {
   Hive.registerAdapter(WeatherDailyCacheAdapter());
   Hive.registerAdapter(WeatherHourlyCacheAdapter());
   Hive.registerAdapter(WeatherLocationCacheAdapter());
+
+  await Hive.openBox(SettingsService.boxName);
 }
