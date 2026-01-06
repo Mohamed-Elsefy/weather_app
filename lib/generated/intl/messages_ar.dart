@@ -25,10 +25,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
+    "feels": MessageLookupByLibrary.simpleMessage("الرطوبة"),
+    "hourlyForecast": MessageLookupByLibrary.simpleMessage(
+      "توقعات الطقس بالساعة",
+    ),
+    "humidity": MessageLookupByLibrary.simpleMessage("درجة الحرارة المحسوسة"),
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "light": MessageLookupByLibrary.simpleMessage("فاتح"),
+    "nextDays": MessageLookupByLibrary.simpleMessage("الأيام القادمة"),
     "systme": MessageLookupByLibrary.simpleMessage("النظام"),
     "theme": MessageLookupByLibrary.simpleMessage("السمة"),
     "weather": MessageLookupByLibrary.simpleMessage("الطقس"),
+    "wind": MessageLookupByLibrary.simpleMessage("سرعة الرياح"),
   };
 }

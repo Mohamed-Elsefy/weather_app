@@ -93,6 +93,36 @@ class S {
   String get dark {
     return Intl.message('Dark', name: 'dark', desc: '', args: []);
   }
+
+  /// `feels`
+  String get feels {
+    return Intl.message('feels', name: 'feels', desc: '', args: []);
+  }
+
+  /// `wind`
+  String get wind {
+    return Intl.message('wind', name: 'wind', desc: '', args: []);
+  }
+
+  /// `humidity`
+  String get humidity {
+    return Intl.message('humidity', name: 'humidity', desc: '', args: []);
+  }
+
+  /// `Hourly Forecast`
+  String get hourlyForecast {
+    return Intl.message(
+      'Hourly Forecast',
+      name: 'hourlyForecast',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next Days`
+  String get nextDays {
+    return Intl.message('Next Days', name: 'nextDays', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -15,5 +15,15 @@
     "light": "Light",
     "@light": {},
     "dark": "Dark",
-    "@dark": {}
+    "@dark": {},
+    "feels": "feels",
+    "@feels": {},
+    "wind": "wind",
+    "@wind": {},
+    "humidity": "humidity",
+    "@humidity": {},
+    "hourlyForecast": "Hourly Forecast",
+    "@hourlyForecast": {},
+    "nextDays": "Next Days",
+    "@nextDays": {}
 }

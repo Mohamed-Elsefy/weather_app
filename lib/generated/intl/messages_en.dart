@@ -25,10 +25,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "feels": MessageLookupByLibrary.simpleMessage("feels"),
+    "hourlyForecast": MessageLookupByLibrary.simpleMessage("Hourly Forecast"),
+    "humidity": MessageLookupByLibrary.simpleMessage("humidity"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "light": MessageLookupByLibrary.simpleMessage("Light"),
+    "nextDays": MessageLookupByLibrary.simpleMessage("Next Days"),
     "systme": MessageLookupByLibrary.simpleMessage("System"),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
     "weather": MessageLookupByLibrary.simpleMessage("Weather"),
+    "wind": MessageLookupByLibrary.simpleMessage("wind"),
   };
 }

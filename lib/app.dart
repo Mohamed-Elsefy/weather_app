@@ -5,7 +5,7 @@ import 'package:weather_app/core/theme/app_theme.dart';
 import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/providers/locale_provider.dart';
 import 'package:weather_app/providers/theme_provider.dart';
-import 'package:weather_app/screens/home/home_screen.dart';
+import 'package:weather_app/screens/home_screen.dart';
 
 class MainApp extends ConsumerWidget {
   const MainApp({super.key});

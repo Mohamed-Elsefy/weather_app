@@ -15,5 +15,15 @@
     "light": "فاتح",
     "@light": {},
     "dark": "داكن",
-    "@dark": {}
+    "@dark": {},
+    "feels": "الرطوبة",
+    "@feels": {},
+    "wind": "سرعة الرياح",
+    "@wind": {},
+    "humidity": "درجة الحرارة المحسوسة",
+    "@humidity": {},
+    "hourlyForecast": "توقعات الطقس بالساعة",
+    "@hourlyForecast": {},
+    "nextDays": "الأيام القادمة",
+    "@nextDays": {}
 }
