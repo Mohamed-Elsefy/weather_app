@@ -123,6 +123,46 @@ class S {
   String get nextDays {
     return Intl.message('Next Days', name: 'nextDays', desc: '', args: []);
   }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
+  /// `General`
+  String get general {
+    return Intl.message('General', name: 'general', desc: '', args: []);
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message('About', name: 'about', desc: '', args: []);
+  }
+
+  /// `Settings Hint`
+  String get settingsHint {
+    return Intl.message(
+      'Settings Hint',
+      name: 'settingsHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weather App v1.0.0`
+  String get weatherAppV {
+    return Intl.message(
+      'Weather App v1.0.0',
+      name: 'weatherAppV',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search City`
+  String get searchCity {
+    return Intl.message('Search City', name: 'searchCity', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

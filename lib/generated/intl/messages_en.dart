@@ -22,18 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "about": MessageLookupByLibrary.simpleMessage("About"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "feels": MessageLookupByLibrary.simpleMessage("feels"),
+    "general": MessageLookupByLibrary.simpleMessage("General"),
     "hourlyForecast": MessageLookupByLibrary.simpleMessage("Hourly Forecast"),
     "humidity": MessageLookupByLibrary.simpleMessage("humidity"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "light": MessageLookupByLibrary.simpleMessage("Light"),
     "nextDays": MessageLookupByLibrary.simpleMessage("Next Days"),
+    "searchCity": MessageLookupByLibrary.simpleMessage("Search City"),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "settingsHint": MessageLookupByLibrary.simpleMessage("Settings Hint"),
     "systme": MessageLookupByLibrary.simpleMessage("System"),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
     "weather": MessageLookupByLibrary.simpleMessage("Weather"),
+    "weatherAppV": MessageLookupByLibrary.simpleMessage("Weather App v1.0.0"),
     "wind": MessageLookupByLibrary.simpleMessage("wind"),
   };
 }

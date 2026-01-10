@@ -117,11 +117,15 @@ abstract class AppTheme {
         color: scheme.onSurface,
       ),
       titleMedium: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: scheme.onSurface,
+      ),
+      bodyLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
         color: scheme.onSurface,
       ),
-      bodyLarge: TextStyle(fontSize: 16, color: scheme.onSurface),
       bodyMedium: TextStyle(
         fontSize: 14,
         color: scheme.onSurface.withAlpha(205),

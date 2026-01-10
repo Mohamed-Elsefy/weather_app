@@ -22,10 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "about": MessageLookupByLibrary.simpleMessage("حول"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
     "feels": MessageLookupByLibrary.simpleMessage("الرطوبة"),
+    "general": MessageLookupByLibrary.simpleMessage("عام"),
     "hourlyForecast": MessageLookupByLibrary.simpleMessage(
       "توقعات الطقس بالساعة",
     ),
@@ -33,9 +35,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "light": MessageLookupByLibrary.simpleMessage("فاتح"),
     "nextDays": MessageLookupByLibrary.simpleMessage("الأيام القادمة"),
+    "searchCity": MessageLookupByLibrary.simpleMessage("بحث باسم المدينه"),
+    "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
+    "settingsHint": MessageLookupByLibrary.simpleMessage("تلميح الإعدادات"),
     "systme": MessageLookupByLibrary.simpleMessage("النظام"),
     "theme": MessageLookupByLibrary.simpleMessage("السمة"),
     "weather": MessageLookupByLibrary.simpleMessage("الطقس"),
+    "weatherAppV": MessageLookupByLibrary.simpleMessage(
+      "اصدار تطبيق الطقس v1.0.0",
+    ),
     "wind": MessageLookupByLibrary.simpleMessage("سرعة الرياح"),
   };
 }

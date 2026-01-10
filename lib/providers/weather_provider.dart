@@ -15,20 +15,14 @@ class WeatherNotifier extends AsyncNotifier<WeatherResponse> {
     cache: WeatherCacheService(),
   );
 
-  double? _lat;
-  double? _lon;
-
   late final LocationService _locationService = LocationService();
 
   @override
   Future<WeatherResponse> build() async {
     final lang = ref.watch(localeProvider).languageCode;
-
     final position = await _locationService.getCurrentLocation();
-    _lat = position.latitude;
-    _lon = position.longitude;
 
-    return _repo.getByCoordinates(_lat!, _lon!, lang);
+    return _repo.getByCoordinates(position.latitude, position.longitude, lang);
   }
 
   Future<void> fetchByCity(String city, String lang) async {
@@ -48,13 +42,12 @@ class WeatherNotifier extends AsyncNotifier<WeatherResponse> {
   }
 
   Future<void> refresh() async {
-    if (_lat == null || _lon == null) return;
-
-    final lang = ref.read(localeProvider).languageCode;
+    final lang = ref.watch(localeProvider).languageCode;
+    final position = await _locationService.getCurrentLocation();
 
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-      () => _repo.getByCoordinates(_lat!, _lon!, lang),
+      () => _repo.getByCoordinates(position.latitude, position.longitude, lang),
     );
   }
 }

@@ -12,6 +12,9 @@ class LanguageSwitcher extends ConsumerWidget {
       title: Text(S.of(context).language),
       trailing: DropdownButton<Locale>(
         value: ref.watch(localeProvider),
+
+        style: Theme.of(context).textTheme.bodyLarge,
+
         items: [
           DropdownMenuItem(
             value: const Locale('en'),

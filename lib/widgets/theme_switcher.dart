@@ -14,6 +14,9 @@ class ThemeSwitcher extends ConsumerWidget {
       title: Text(S.of(context).theme),
       trailing: DropdownButton<ThemeMode>(
         value: themeMode,
+
+        style: Theme.of(context).textTheme.bodyLarge,
+
         items: [
           DropdownMenuItem(
             value: ThemeMode.system,
